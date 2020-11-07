@@ -1,0 +1,36 @@
+.subtilte{
+  background-image: url(/assets/bg-appBanner-pict.jpg);
+  padding: 100px 40px;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  .subtilte__inner{
+    color: #fff;
+    text-align: center;
+    .inner-tilte{
+      text-shadow: 0 0 5px rgba(0,0,0,0.4);
+      font-size: 24px;
+      font-weight: bold;
+      line-height: 1.4;
+    }
+    .inner-text{
+      font-size: 35px;
+      text-shadow: 0 0 5px rgba(0,0,0,0.4);
+    }
+    .inner__icon{
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin: 20px auto 0;
+      a{
+        margin-right: 10px;
+        .inner__icon3{
+          width: 180px;
+          &.inner__icon3:hover{
+            opacity: 0.5;
+          }
+        }
+      }
+    }
+  }
+}
