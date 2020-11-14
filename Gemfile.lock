@@ -124,7 +124,9 @@ GEM
     erubis (2.7.0)
     execjs (2.7.0)
     ffi (1.13.1)
+
     font-awesome-sass (5.13.0)
+
       sassc (>= 1.11)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
@@ -312,9 +314,11 @@ DEPENDENCIES
   capistrano-rbenv
   capistrano3-unicorn
   capybara (>= 2.15)
+
   carrierwave
   devise
   erb2haml
+
   font-awesome-sass
   haml-rails (>= 1.0, <= 2.0.1)
   jbuilder (~> 2.7)
