@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+
   
   def new
   end
@@ -16,3 +17,4 @@ class ProductsController < ApplicationController
   end
 
 end
+

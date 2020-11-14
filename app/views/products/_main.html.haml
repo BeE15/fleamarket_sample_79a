@@ -1,0 +1,112 @@
+.main
+  %section.main-head
+    .main-content
+      %h2.content-subtitle 人生を変えるフリマアプリ
+      %p 
+        FURIMAはだれでもかんたんに出品・購入できる
+        %br 
+        フリマアプリです
+      .content-btn
+        %a.abtn{ href: '#' }
+          = image_tag "logoa.png"
+        %a.bbtn{ href: '#' }
+          = image_tag "logog.png"
+  %section.topsecound
+    %h2.subtitle FURIMAが選ばれる3つの理由
+    %ul.topsecound-lists
+      %li.topsecound-list
+        .topsecound-list__pict
+          %span.number 1
+          = image_tag 'pict-reason-01.jpg'
+        %h3.topsecound-list__text 
+          %span 3分
+          ですぐに出品
+        %p.topsecound-list__description スマホで入力するだけで簡単に出品できる！
+      %li.topsecound-list
+        .topsecound-list__pict
+          %span.number 2
+          = image_tag 'pict-reason-02.jpg'
+        %h3.topsecound-list__text 
+          %span シンプル
+          で使いやすい
+        %p.topsecound-list__description めんどくさい入力は必要なく、検索も購入もスムーズ！
+      %li.topsecound-last.topsecound-list
+        %h3.topsecound-list__pict
+          %span.number 3
+          = image_tag 'pict-reason-03.jpg'
+          %h3.topsecound-list__text 
+            手数料            
+            %span 業界最安値
+        %p.topsecound-list__description 最大3%でお得に出品&購入！
+  %section.topthird
+    .topthirdinner
+      %h2.thirdtitle 会員数日本一位
+      %p.text
+        %br
+        出品・購入回数も業界最多です！
+        %br
+        ほしかったあの商品に出会えるかもしれません。
+      .inner__icon
+        = link_to image_tag("logoa.png", class:"inner__icon2"), "#"
+        = link_to image_tag("logog.png", class:"inner__icon2"), "#"
+  %section.topfour
+    %h2.headfour FURIMAの特徴
+    .threeitems
+      %section.item
+        %figure.item__img
+          = image_tag "/assets/icon-01.png"
+        %h3.item__subtitle 簡単に売り買いできる
+        %p.item__detail スマホひとつで、いつでもどこでも簡単に出品・購入が可能！
+      %section.item
+        %figure.item__img
+          = image_tag "/assets/icon-03.png"
+        %h3.item__subtitle 売上金は即日振込みに対応
+        %p.item__detail 午前9時までに振込を依頼いただければ、翌日に指定の口座に入金いたします！
+      %section.item
+        %figure.item__img
+          = image_tag "/assets/icon-04.png"
+        %h3.item__subtitle 様々な支払いに対応
+        %p.item__detail お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法あります。
+  %section.pickupkategori
+    %h2.kategorihead ピックアップカテゴリー
+    .productbox
+      .productboxhead
+        %a{ href: '#' }
+          %h3.title 新規投稿商品
+      .productlists
+        .productlist
+          = link_to "#" do
+            %figure.productlist__img
+              = image_tag 'sanma.png',class: "images"
+            .productlist__body
+              %h3.name さんま
+              .details
+                %ul
+                  %li 10000円
+                  %li
+                    %i.fa.fa-star 
+                    1
+                %p (税込)
+  %section.productbrnd
+    %h2.kategorihead ピックアップブランド
+    .productbox
+      .productboxhead
+        %a{ href: '#' }
+          %h3.title アーカイバ
+      .productlists
+        .productlist
+          = link_to "#" do
+            %figure.productlist__img
+              = image_tag 'sanma.png',class: "images"
+            .productlist__body
+              %h3.name さんま
+              .details
+                %ul
+                  %li 10000円
+                  %li
+                    %i.fa.fa-star 
+                    1
+                %p (税込)
+    
+        
+      

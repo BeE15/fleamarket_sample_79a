@@ -3,6 +3,19 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import "modules/buyers";
+
+@import "modules/main";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+@import "modules/header";
+@import "modules/footer";
+@import "modules/subheader";
+
+
+body {
+  font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
+}
+=======
 @import "modules/products";
 @import "font-awesome-sprockets";
 @import "font-awesome";
