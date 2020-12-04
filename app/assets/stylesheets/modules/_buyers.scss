@@ -130,23 +130,34 @@
             }
           }
         }
-        &__Btn {
-          width: 330px;
-          height: 50px;
-          margin: 0 auto;
-          margin-top: 30px;
-          margin-bottom: 60px;
-          background-color: #40e0d0;
-          &--Btn {
-            padding-top: 13px;
-            font-size: 18px;
-            text-align: center;
-            font-weight: bold;
-            color: #fff;
-            text-decoration: none;
-            display: block;
-          }
-        }
+        // &__Btn {
+        //   width: 330px;
+        //   height: 50px;
+        //   margin: 0 auto;
+        //   margin-top: 30px;
+        //   margin-bottom: 60px;
+        //   background-color: #40e0d0;
+        //   &--Btn {
+        //     padding-top: 13px;
+        //     font-size: 18px;
+        //     text-align: center;
+        //     font-weight: bold;
+        //     color: #fff;
+        //     text-decoration: none;
+        //     display: block;
+        //   }
+        // }
+      }
+      button{
+        width: 330px;
+        height: 50px;
+        margin: 0 auto;
+        margin-top: 30px;
+        margin-bottom: 60px;
+        background-color: #40e0d0;
+        // font-weight: bold;
+        font-size: 18px;
+        border: 1px solid  black;
       }
     }
   }

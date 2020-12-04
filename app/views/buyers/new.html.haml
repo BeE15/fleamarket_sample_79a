@@ -22,11 +22,15 @@
             ¥2,000
         .Form__PaymentMethod
           .Form__PaymentMethod--Left
-            %span 支払い方法
-            %ul
-              %li クレジットカード
-              %li ************1234
-              %li 有効期限 01 / 25
+            - if @default_card_information.blank?
+              %br /
+            - else
+              -#以下カード情報を表示
+              = "**** **** **** " + @default_card_information.last4
+              - exp_month = @default_card_information.exp_month.to_s
+              - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+              = exp_month + " / " + exp_year
+            
           .Form__PaymentMethod--Right
             = link_to "#", class: 'ChangeButton' do
               変更する >
@@ -40,10 +44,12 @@
           .Form__ShippingAddress--Right
             = link_to "#", class: 'ChangeButton' do
               変更する >
-        -# = f.submit '購入する', class: 'Form__Btn'
+       
         .Form__Btn
-          = link_to "#", class: 'Form__Btn--Btn' do
-            購入する
+          -# = link_to , class: 'Form__Btn--Btn', action: :pay, method: :post do
+          -#   購入する
+          = form_tag(action: :pay, method: :post, class: 'Form__Btn--Btn') do
+            %button 購入する
   .Footer
     .Terms
       %ul.Terms__Links

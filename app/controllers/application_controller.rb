@@ -13,4 +13,5 @@ private
       password == Rails.application.credentials[:basic_auth][:pass]
     end
   end
+  
 end
