@@ -10,9 +10,12 @@ Rails.application.routes.draw do
 
 
 
-  root 'products#index'
-  resources :products, except: :show
 
+
+
+  root 'products#index'
+  # resources :products, except: :show　したの記述と被ってるからコメントアウト
+  # resources :products, only: [:index, :new]
   # resources :users, only: :show do
   #   collection do
   #     get 'edit_profile', 'edit_address'
@@ -48,12 +51,7 @@ Rails.application.routes.draw do
       get 'logout'
     end
   end
-  # resources :product do
-  #   collection do
-  #     get 'category/get_category_children', to: 'prodacts#get_category_children', defaults: { format: 'json' }
-  #     get 'category/get_category_grandchildren', to: 'items#get_category_grandchildren', defaults: { format: 'json' }
-  #   end
-  # end
+
   resources :products do
     collection do
       get 'get_category_children', defaults: { format: 'json' }
@@ -68,7 +66,6 @@ Rails.application.routes.draw do
  
   resources :buyers, only: [:new, :create]
 
-  resources :products, only: [:index, :new, :show, :destroy]
   
 end
 

@@ -4,9 +4,10 @@
     = image_tag asset_path("logo_1.png") 
 .wrapper
   .form-new
-    = form_with model: @product do |f|
+    -# = form_with model: @product do |f|下の書き方の方がいいかも
+    = form_with model: @product, local: true do |f|
       -# %input{name: "utf8", type: "hidden", value: "✓"}/
-      -# %input{name: "authenticity_token", type: "hidden", value: "sOAZ2Pxr9dhppivIyWwYGIL048Kp4lexTZMjQip5E1xkbfsDb4CLoyMU6CBsHpOQZ2+RH+206Ai7l5RyBasBaw=="}/
+      -# %input{name: "authenticity_token", type: "hidden", value: "sOAZ2Pxr9dhppivIyWwYGIL048Kp4lexTZMjQip5E1xkbfsDb4CLoyMU6CBsHpOQZ2+RH+206Ai7l5RyBasBaw=="}/ 何のしよう？
       .form-image
         .form-image__label
           %label 出品画像
@@ -49,44 +50,21 @@
             = f.text_area :description, :placeholder => "商品の説明（必須1,000文字以内(色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
       .form-detail
         %p 商品の詳細
-        .form-detail__category
-          .form-detail__category__label
-            = form_with(model: @product, local: true) do |f|
-              .form-detail__category__label
-                %label カテゴリー
-                %span 必須
-              .form-detail__category__input
-                -# %select#category_select.select-default{name: "item[category_id]"}
-                  -# %option{value: ""} 選択して下さい
-                  -# %option{value: "1"} レディース
-                  -# %option{value: "61"} メンズ
-                  -# %option{value: "111"} ベビー/キッズ
-                  -# %option{value: "149"} 本・音楽・ゲーム
-                  -# %option{value: "190"} ハンドメイド
-                = f.select :category_id, options_for_select( @category_parent_array.map{|c| [c[:name], c[:id]]}),{include_blank: "選択してください"}, { class: "parent_category_box", id: "parent_category"}
-                -# = icon('fa', 'chevron-down')
-                .pulldown.item_input__body__category__children#children_box
-                .pulldown.item_input__body__category__grandchildren#grandchildren_box
-      .item_input__body
-        = form_with(model: @product, local: true) do |f|
-          .item_input__body__category#category_box
-            -# .pulldown#partent_box
-            -#   = f.select :category_id, options_for_select( @category_parent_array.map{|c| [c[:name], c[:id]]}),{include_blank: "選択してください"}, { class: "parent_category_box", id: "parent_category"}
-            -#   = icon('fa', 'chevron-down')
-
-            .pulldown.item_input__body__category__children#children_box
-              -#親カテゴリー選択によって子カテゴリー表示
-            .pulldown.item_input__body__category__grandchildren#grandchildren_box
-              -#子カテゴリー選択によって孫カテゴリー表示
-              -# .pulldown#size_selectbo
-              -#   =f.collection_select :size_id, Size.all, :id, :name, {include_blank: "選択してください"}, {class: "form-detail__category__input"}
-              -#   = icon('fa', 'chevron-down')
+        -# .form-detail__category
+        -#   .form-detail__category__label         
+        -#     .form-detail__category__label
+        -#       %label カテゴリー
+        -#       %span 必須
+        -#     .form-detail__category__input
+        -#       = f.select :category_id, options_for_select( @category_parent_array.map{|c| [c[:name], c[:id]]}),{include_blank: "選択してください"}, { class: "parent_category_box", id: "parent_category"}             
+        -#       .pulldown.item_input__body__category__children#children_box
+        -#       .pulldown.item_input__body__category__grandchildren#grandchildren_box　現在エラー回避のためにコメントアウトしてます。
         .form-detail__brand
           .form-detail__brand__label
             %label ブランド
             %span 任意
           .form-detail__brand__input
-            = f.text_field :brand, :placeholder =>"例）シャネル"
+            -# = f.text_field :brand, :placeholder =>"例）シャネル"　エラー回避のためにコメントアウト
         .form-detail__status
           .form-detail__status__label
             %label 商品の状態
@@ -101,7 +79,7 @@
             %label 配送料の負担
             %span 必須
           .form-shipping__charge__input
-            = f.select(:shipping_method, [["選択してください"],["料込み（出品者負担）",1],["着払い（購入者負担）",2]])
+            = f.select(:shipping_cost, [["選択してください"],["料込み（出品者負担）",1],["着払い（購入者負担）",2]])
         .form-shipping__area
           .form-shipping__area__label
             %label 発送元の地域
@@ -109,7 +87,7 @@
           .form-shipping__area__input
             %span.form-shipping__area__input__lavel 都道府県 
             .form-shipping__area__input.icon-relative
-              = f.collection_select(:prefecture_id, Prefecture.all, :id , :name, prompt: "選択して下さい", class: 'prefecture')
+              -# = f.collection_select(:prefecture_id, Prefecture.all, :id , :name, prompt: "選択して下さい", class: 'prefecture')　エラー回避のためにコメントアウト
         .form-shipping__days
           .form-shipping__days__label
             %label 発送までの日数
@@ -128,7 +106,7 @@
             = f.text_field :price, :placeholder => "0"
       .form-btn
         .form-btn__top
-          = f.button type: "submit"
+          = f.submit :出品する
           出品する
         .form-btn__midle
           = link_to "#" do

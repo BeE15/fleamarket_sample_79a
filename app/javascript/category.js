@@ -5,6 +5,7 @@ $(function(){
     return html;
   }
   // 子カテゴリーの表示作成
+  
   function appendChildrenBox(insertHTML){
     let childSelectHtml = '';
     childSelectHtml = `<select class="item_input__body__category__children--select" id="children_category">
@@ -29,7 +30,6 @@ $(function(){
   $(document).on("change","#parent_category", function() {
     //選択された親カテゴリーの名前取得 → コントローラーに送る
     let parentCategory =  $("#parent_category").val();
-    console.log(parentCategory)
     if (parentCategory != "") {
       $.ajax( {
         type: 'GET',

@@ -1,12 +1,12 @@
 class ProductsController < ApplicationController
-    before_action :set_category, only: [:new, :edit, :create, :update, :destroy]
-    before_action :set_product, except: [:index, :new, :create]
+    # before_action :set_category, only: [:new, :edit, :create, :update, :destroy] カテゴリー使うときは外す
+    # before_action :set_product, except: [:index, :new, :create]　exceptとonly間違えでは？
   
   def index
     @products = Product.all
     @products = Product.includes(:images).order('created_at DESC')
     @product_images = ProductImage.all
-    @parents = Category.where(ancestry: nil) 
+    # @parents = Category.where(ancestry: nil) 
     @purchase_history = PurchaseHistory.all
     # render action: :new
   end
@@ -72,12 +72,13 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:name, :description, :category, :brand, :status, :shipping_method, :prefecture_id, :days, :price, images_attributes: [:src, :_destroy, :id])
+    params.require(:product).permit(:name, :description, :status, :shipping_cost, :days, :price, :size　,:created_at, :updated_at).merge(user: current_user)
   end
 
-  def set_product
-    @product = Product.find(params[:id])
-  end
+  # def set_product
+  #   @product = Product.find(params[:id])
+  # end 
+  # before aciton 使うなら外す。
   
   def set_category  
     @category_parent_array = Category.where(ancestry: nil)
