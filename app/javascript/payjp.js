@@ -20,11 +20,6 @@ document.addEventListener(
             $("#card_token").append(
               $('<input type="hidden" name="payjp-token">').val(response.id)
             ); //取得したトークンを送信できる状態にします
-            // var form = document.createElement('form');
-            // form.action = 'Content-Type: application/x-www-form-urlencoded';
-            // form.method = 'post';
-            // document.body.appendChild(form);
-            // form.submit();
             document.getElementById("inputForm").submit();
             alert("登録が完了しました"); //確認用
           } else {

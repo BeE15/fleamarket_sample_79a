@@ -19,15 +19,9 @@
                 = exp_month + " / " + exp_year
         .card-edit-area
           .card-edit-area__button
-            .content-box__buy-btn
-              -# - if @card             
+            .content-box__buy-btn           
               = link_to "カードを削除する", delete_cards_path{@card.id}, method: "delete", class: "content__buy-btn__submit"
-              -# - else
-              -#   = link_to "カードを登録する", new_card_path, class: "content__buy-btn__submit"
-
-            -# = link_to delete_cards_path ,method: :delete,class:"content__buy-btn__submit" do
-            -#   %button{type: "submit",class: "content__buy-btn__submit"}
-            -#     削除する
+             
 
   .Footer
     .Terms

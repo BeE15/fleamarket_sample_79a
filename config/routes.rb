@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   # root 'items#index'
-  root 'buyers#new'
-  # root 'mypages#show'
+  # root 'buyers#new'
+  root 'mypages#show'
   resources :mypages, only: [:show] do
     collection do
       get 'logout'
