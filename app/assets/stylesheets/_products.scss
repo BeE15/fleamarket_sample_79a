@@ -1,0 +1,570 @@
+* {
+  box-sizing: border-box;
+}
+
+.devise__header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f5f5f5;
+  width: 100%;
+  height: 130px;
+  img{
+    width: 180px;
+    height: 50px;
+    background-repeat: no-repeat;
+    background-size: 180px;
+  }
+}
+.wrapper {
+  background-color: #f5f5f5;
+  padding: 30px 0;
+  align-items: center;
+  box-sizing: border-box;
+  .form-new {
+    background-color: white;
+    max-width: 700px;
+    margin: 0 auto;
+    padding-bottom: 5px;
+    .form-image {
+      padding: 40px;
+      border-bottom: solid 1px #ccc;
+      .form-image__label label {
+        font-size: 14px;
+        font-weight: 600;
+        color: #333333;
+      }
+      .form-image__label span {
+        border-radius: 2px;
+        display: inline-block;
+        font-weight: 600;
+        line-height: 1.4em;
+        font-size: 12.5px;
+        color: white;
+        margin-left: 8px;
+        padding: 0 4px;
+        background-color: #ea352d;
+        box-sizing: border-box;
+      }  
+      .form-image p {
+        margin-top: 16px;
+        font-size: 14px;
+        color: #333333;
+      }
+    }
+    .form-image__box {
+      display: block;
+      margin: 16px auto 0;
+      display: flex;
+      flex-wrap: wrap;
+    }
+      .label-content {
+        margin-bottom: 10px;
+        width: 620px;
+      }
+        .label-box {
+          display: block;
+          border: 1px dashed #ccc;
+          position: relative;
+          background: #f5f5f5;
+          width: 100%;
+          height: 162px;
+          cursor: pointer;
+        }
+          .label-box-visible {
+            position: absolute;
+            top: 50%;
+            left: 16px;
+            right: 16px;
+            text-align: center;
+            font-size: 14px;
+            line-height: 1.5;
+            font-weight: bold;
+            -webkit-transform: translate(0, -50%);
+            transform: translate(0, -50%);
+            pointer-events: none;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+          }
+          .hidden-content .hidden-field {
+            display: none;
+          }
+    .form-item {
+      padding: 40px;
+      border-bottom: solid 1px #ccc;
+    }
+      .form-item__name__label label {
+        font-size: 14px;
+        font-weight: 600;
+        color: #333333;
+      }
+      .form-item__name__label span {
+        border-radius: 2px;
+        display: inline-block;
+        font-weight: 600;
+        line-height: 1.4em;
+        font-size: 12.5px;
+        color: white;
+        margin-left: 8px;
+        padding: 0 4px;
+        background-color: #ea352d;
+      }
+      .form-item__name__input {
+        margin-top: 16px;
+      }
+        .form-item__name__input input {
+          height: 48px;
+          width: 620px;
+          padding: 0 16px;
+          border-radius: 4px;
+          border: 1px solid #ccc;
+        }
+      .form-item__text {
+        margin-top: 32px;
+      }
+        .form-item__text__label label {
+          font-size: 14px;
+          font-weight: 600;
+          color: #333333;
+        }
+        .form-item__text__label span {
+          border-radius: 2px;
+          display: inline-block;
+          font-weight: 600;
+          line-height: 1.4em;
+          font-size: 12.5px;
+          color: white;
+          margin-left: 8px;
+          padding: 0 4px;
+          background-color: #ea352d;
+        }
+        .form-item__text__input textarea {
+          margin-top: 16px;
+          font-size: 16px;
+          padding: 13px 16px;
+          border-radius: 4px;
+          border: 1px solid #ccc;
+          resize: vertical;
+          width: 100%;
+          height: 160px;
+          box-sizing: border-box;
+        }
+        .form-detail__size {
+          margin-top: 32px;
+        }
+        .form-detail__size__label label {
+            font-size: 14px;
+            font-weight: 600;
+            color: #333333;
+          }
+          .form-detail__size__label span {
+            border-radius: 2px;
+            display: inline-block;
+            font-weight: 600;
+            line-height: 1.4em;
+            font-size: 12.5px;
+            color: white;
+            margin-left: 8px;
+            padding: 0 4px;
+            background-color: #888888;
+          }
+          .form-detail__size__input {
+            margin-top: 16px;
+          }
+          .form-detail__size__input select {
+            height: 48px;
+            width: 620px;
+            padding: 0 16px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            background-color: white;
+            cursor: pointer;
+          }
+    .form-detail {
+      padding: 40px;
+      border-bottom: solid 1px #ccc;
+    }
+      .form-detail p {
+        color: #888888;
+        font-size: 14px;
+        margin-bottom: 24px;
+        line-height: 1.4em;
+      }
+        .form-detail__category__label label {
+          font-size: 14px;
+          font-weight: 600;
+          color: #333333;
+        }
+        .form-detail__category__label span {
+          border-radius: 2px;
+          display: inline-block;
+          font-weight: 600;
+          line-height: 1.4em;
+          font-size: 12.5px;
+          color: white;
+          margin-left: 8px;
+          padding: 0 4px;
+          background-color: #ea352d;
+        }
+        .form-new .form-detail__category__input {
+          margin-top: 16px;
+        }
+          .form-detail__category__input .select-default {
+            margin-bottom: 12px;
+          }
+          .form-detail__category__input select {
+            height: 48px;
+            width: 620px;
+            padding: 0 16px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            background-color: white;
+            cursor: pointer;
+          }
+        .form-detail__brand {
+          margin-top: 32px;
+        }
+          .form-detail__brand label {
+            font-size: 14px;
+            font-weight: 600;
+            color: #333333;
+          }
+          .form-detail__brand span {
+            border-radius: 2px;
+            display: inline-block;
+            font-weight: 600;
+            line-height: 1.4em;
+            font-size: 12.5px;
+            color: white;
+            margin-left: 8px;
+            padding: 0 4px;
+            background-color: #888888;
+          }
+          .form-detail__brand__input {
+            margin-top: 16px;
+          }
+          .form-detail__brand__input select {
+            height: 48px;
+            width: 620px;
+            padding: 0 16px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            background-color: white;
+            cursor: pointer;
+          }
+        .form-detail__status {
+          margin-top: 32px;
+        }
+          .form-detail__status__label label {
+            font-size: 14px;
+            font-weight: 600;
+            color: #333333;
+          }
+          .form-detail__status__label span {
+            border-radius: 2px;
+            display: inline-block;
+            font-weight: 600;
+            line-height: 1.4em;
+            font-size: 12.5px;
+            color: white;
+            margin-left: 8px;
+            padding: 0 4px;
+            background-color: #ea352d;
+          }
+          .form-detail__status__input {
+            margin-top: 16px;
+          }
+            .form-detail__status__input select {
+              height: 48px;
+              width: 620px;
+              padding: 0 16px;
+              border-radius: 4px;
+              border: 1px solid #ccc;
+              background-color: white;
+              cursor: pointer;
+            }
+    .form-shipping {
+      padding: 40px;
+      }
+      .form-shipping__title {
+        display: flex;
+        font-size: 14px;
+      }
+        .form-shipping__title p {
+          color: #888888;
+          margin-bottom: 24px;
+          line-height: 1.4em;
+        }
+      .form-shipping__charge__label label {
+        font-size: 14px;
+        font-weight: 600;
+        color: #333333;
+      }
+      .form-shipping__charge__label span {
+        border-radius: 2px;
+        display: inline-block;
+        font-weight: 600;
+        line-height: 1.4em;
+        font-size: 12.5px;
+        color: white;
+        margin-left: 8px;
+        padding: 0 4px;
+        background-color: #ea352d;
+      }
+      .form-shipping__charge__input {
+        margin-top: 16px;
+      }
+        .form-shipping__charge__input select {
+          height: 48px;
+          width: 620px;
+          padding: 0 16px;
+          border-radius: 4px;
+          border: 1px solid #ccc;
+          background-color: white;
+          cursor: pointer;
+        }
+      .form-shipping__area {
+        margin-top: 32px;
+      }
+        .form-shipping__area__label label {
+          font-size: 14px;
+          font-weight: 600;
+          color: #333333;
+        }
+        .form-shipping__area__label span {
+          border-radius: 2px;
+          display: inline-block;
+          font-weight: 600;
+          line-height: 1.4em;
+          font-size: 12.5px;
+          color: white;
+          margin-left: 8px;
+          padding: 0 4px;
+          background-color: #ea352d;
+        } 
+      .form-shipping__area__input {
+        margin-top: 16px;
+      }
+        .form-shipping__area__input select {
+          height: 48px;
+          width: 620px;
+          padding: 0 16px;
+          border-radius: 4px;
+          border: 1px solid #ccc;
+          background-color: white;
+          cursor: pointer;
+        }
+    .form-shipping__days {
+      margin-top: 32px;
+    }
+      .form-shipping__days__label label {
+        font-size: 14px;
+        font-weight: 600;
+        color: #333333;
+      }
+      .form-shipping__days__label span {
+        border-radius: 2px;
+        display: inline-block;
+        font-weight: 600;
+        line-height: 1.4em;
+        font-size: 12.5px;
+        color: white;
+        margin-left: 8px;
+        padding: 0 4px;
+        background-color: #ea352d;
+      }
+    .form-shipping__days__input {
+      margin-top: 16px;
+    }
+      .form-shipping__days__input select {
+        height: 48px;
+        width: 620px;
+        padding: 0 16px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        background-color: white;
+        cursor: pointer;
+      }
+    .form-price {
+      padding: 40px 40px 0px;
+    }
+      .form-price__title {
+        display: flex;
+        font-size: 14px;
+      }
+        .form-price__title p {
+          color: #888888;
+          font-weight: 600px;
+          margin-bottom: 24px;
+          line-height: 1.4em;
+        }
+      .form-price__value {
+        display: flex;
+        justify-content: space-between;
+      }
+        .form-price__value__left label {
+          font-size: 14px;
+          font-weight: 600;
+          color: #333333;
+        }
+        .form-price__value__left span {
+          border-radius: 2px;
+          display: inline-block;
+          font-weight: 600;
+          line-height: 1.4em;
+          font-size: 12.5px;
+          color: white;
+          margin-left: 8px;
+          padding: 0 4px;
+          background-color: #ea352d;
+        }
+        .form-price__value__right input {
+          height: 48px;
+          text-align: right;
+          border-radius: 4px;
+          border: 1px solid #ccc;
+          background-color: white;
+          margin-left: 10px;
+          padding-right: 20px;
+          width: 250px;
+        }
+      .form-btn {
+        width: 360px;
+        margin: 60px 170px 32px 170px;
+      }
+        .form-btn__top {
+          cursor: pointer;
+        }
+          .form-btn__top {
+            color: white;
+            background-color: #3CCACE;
+            display: inline-block;
+            height: 46px;
+            line-height: 46px;
+            font-size: 17px;
+            border: 1px solid;
+            border-radius: 4px;
+            border-color: #3CCACE;
+            text-align: center;
+            font-weight: 600;
+            width: 100%;
+          }
+        .form-btn__midle {
+          margin-top: 24px;
+        }
+          .form-btn__midle {
+            color: #333333;
+            background-color: #ccc;
+            display: inline-block;
+            height: 46px;
+            line-height: 46px;
+            font-size: 17px;
+            border-radius: 4px;
+            text-align: center;
+            font-weight: 600;
+            width: 100%;
+            text-decoration: none;
+          }
+        .form-btn__bottom {
+          text-align: center;
+          margin-top: 24px;
+        }
+          .form-btn__bottom a {
+            color: #0099e8;
+            font-size: 14px;
+            text-decoration: none;
+          }
+      .form-term {
+        width: 620px;
+        height: 32.5px;
+        margin: 0 40px 64px;
+        font-size: 12.5px;
+        color: #333333;
+      }
+  }
+  .devise__footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f5f5f5;
+    width: 100%;
+    padding: 30px 0;
+    img{
+      width: 180px;
+      height: 50px;
+      background-repeat: no-repeat;
+      background-size: 180px;
+    }
+    .devise__footer__nav li {
+      display: inline;
+      margin-right: 15px;
+      font-size: 12px;
+    }
+    .devise__footer__nav li {
+      display: inline;
+      margin-right: 15px;
+      font-size: 12px;
+    }
+    .devise__footer__nav li {
+      display: inline;
+      margin-right: 15px;
+      font-size: 12px;
+    }
+    .devise__footer img {
+      width: 185px;
+      height: auto;
+      margin-top: 30px;
+    }
+  }
+
+
+  .image-box {
+    height: 210px;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    .linking {
+      display: block;
+      .linkingimage {
+        width: 130px;
+      }
+      .js-file1 {
+        display: none;
+      }
+      .js-file2 {
+        display: none;
+      }
+      .js-file3 {
+        display: none;
+      }
+    }
+  }
+
+  .prev-content {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    .prev-image1 {
+      width: 130px;
+    }
+    .deletebtn1 {
+      margin: 20px 0px;
+      color: red;
+    }
+    .prev-image2 {
+      width: 130px;
+    }
+    .deletebtn2 {
+      margin: 20px 0px;
+      color: red;
+    }
+    .prev-image3 {
+      width: 130px;
+    }
+    .deletebtn3 {
+      margin: 20px 0px;
+      color: red;
+    }
+  }
+
+}

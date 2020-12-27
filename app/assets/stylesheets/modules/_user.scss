@@ -1,0 +1,369 @@
+@mixin line_up_side($justify-content: center, $align-items: center) {
+  display: flex;
+  justify-content: $justify-content;
+  align-items: $align-items;
+}
+
+@mixin line_up_vertical($flex-direction: column, $align-items: center) {
+  display: flex;
+  flex-direction: $flex-direction;
+  align-items: $align-items;
+}
+
+#error_explanation {
+  margin-bottom: 20px;
+  padding: 5px 5px 5px 10px;
+  border: 2px solid red;
+  width: 355px;
+
+  li {
+    list-style: square;
+    list-style-position:inside;
+  }
+}
+
+.devise {
+  background-color: $background-offwhite;
+  color: $font-black;
+
+  &__wrapper {
+    min-height: calc(100vh - 185px);
+  }
+
+  &__header {
+    @include line_up_side;
+    background-color: #f5f5f5;
+    width: 100%;
+    height: 130px;
+
+    img {
+      height: 50px;
+    }
+  }
+
+  .progress_bar {
+    display: flex;
+    margin-left: 50px;
+      
+    .step {
+      color: $unfinish;
+      text-align: center;
+      font-size: 12px;
+      font-weight: bold;
+      &--active {
+        color: $main-color;
+      }
+
+      &__icon {
+        @include line_up_side;
+        margin-top: 3px;
+
+        &__circle {
+          background-color: $unfinish;
+          width: 12px;
+          height: 12px;
+          border-radius: 50%;
+          &--active {
+            background-color: $main-color;
+          }
+        }
+
+        &__bar {
+          background-color: $unfinish;
+          width: 40px;
+          height: 2px;
+          &--active {
+            background-color: $main-color;
+          }
+        }
+
+        .invisible {
+          opacity: 0;
+        }    
+      }
+    }
+  }
+  
+
+  .login {
+    background-color: $basic-white;
+    width: 455px;
+    margin: 0 auto;
+
+    &__top {
+      @include line_up_side;
+      flex-direction: column;
+      height: 145px;
+      font-size: 14px;
+      border-bottom: 1px solid $background-offwhite;
+
+      .sign_up_link {
+        background-color: $link-blue;
+        color: $basic-white;
+        width: 320px;
+        height: 42px;
+        margin-top: 5px;
+        text-decoration: none;
+        line-height: 42px;
+        text-align: center;
+      }
+    }
+
+    &__bottom {
+      padding: 40px 64px 32px;
+      .logins {
+        text-align: center;
+        font-size: 14px;
+        p {
+          margin-bottom: 5px;
+        }
+        span {
+          display: block;
+          font-size: 14px;
+          margin: 20px 0;
+        }
+        .field {
+        margin-bottom: 24px;
+        text-align: center;
+          input {
+          width: 320px;
+          padding: 10px 16px 8px;
+          border-style: none;
+          border-radius: 4px;
+          border: 1px solid $unfinish;
+          }
+        }
+      }
+
+      .submit_btn {
+        background-color: $main-color;
+        color: $basic-white;
+        width: 320px;
+        height: 50px;
+        margin-bottom: 40px;
+        border-style: none;
+        cursor: pointer;
+      }
+
+      .password_reset a {
+        color: $link-blue;
+        text-decoration: none;
+        font-size: 14px;
+      }
+    }
+  }
+
+  
+  &__footer {
+    @include line_up_vertical;
+    background-color: #f5f5f5;
+    width: 100%;
+    padding: 30px 0;
+    
+    &__nav li {
+      display: inline;
+      margin-right: 15px;
+      font-size: 12px;
+    }
+    
+    img {
+      width: 185px;
+      height: auto;
+      margin-top: 30px;
+    }
+    
+    &__copywrite small {
+      font-size: 13px;
+    }
+  }
+}
+.sign-up {
+  background-color: $basic-white;
+  width: 700px;
+  margin: 0 auto;
+
+  &__sns {
+    margin: 0 auto;
+    text-align: center;
+    @include line_up_side;
+    flex-direction: column;
+    height: 145px;
+    font-size: 14px;
+    border-bottom: 1px solid $background-offwhite;
+    h3 {
+      font-size: 16px;
+      height: 30px;
+      font-weight: bold;
+    }
+    span{
+      font-size: 20px;
+      font-weight: bold;
+      color: $main-color;
+    }
+  }
+
+
+  &__top {
+    height: 97px;
+    border-bottom: 1px solid $background-offwhite;
+    font-size: 22px;
+    line-height: 97px;
+    font-weight: bold;
+    text-align: center;
+
+    &--mypage {
+      height: 50px;
+      line-height: 50px;
+    }
+  }
+
+  &__bottom {
+    @include line_up_vertical;
+    padding: 24px 0 40px;
+
+    .field {
+      width: 355px;
+      margin-bottom: 24px;
+
+      label {
+        font-size: 14px;
+        font-weight: bold;
+      }
+
+      span {
+        background-color: $caution-red;
+        color: $basic-white;
+        font-size: 12px;
+        padding: 2px 4px;
+        border-radius: 2px;
+      }
+
+      &--optional span {
+        background-color: $unfinish;
+      }
+
+      input {
+        width: 355px;
+        margin: 5px 0;
+        padding: 10px 16px 8px;
+        border-style: none;
+        border-radius: 4px;
+        border: 1px solid $unfinish;
+      }
+
+      .two_rows_input {
+        display: flex;
+        justify-content: space-between;
+        input {
+          width: 170px;
+        }
+      }
+
+      p {
+        color: $fade-font;
+        font-size: 14px;
+      }
+
+
+      .send_btn {
+        background-color: $main-color;
+        color: $basic-white;
+        display: block;
+        width: 345px;
+        height: 50px;
+        margin: 10px auto 20px;
+        text-decoration: none;
+        font-size: 14px;
+        line-height: 50px;
+        text-align: center;
+        border: 1px solid;
+        font-weight: bold;
+      }
+
+      select {
+        background: none;
+        color: $font-black;
+        width: 359px;
+        height: 45px;
+        margin: 5px 0;
+        padding-left: 10px;
+        border: 1px solid $unfinish;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+    }
+
+    .identify {
+      width: 355px;
+      padding: 10px 0;
+      font-size: 14px;
+
+      h3 {
+        margin-bottom: 5px;
+        font-weight: bold;
+      }
+    }
+
+    .birthday_input {
+      display: flex;
+      margin: 5px 0 5px;
+      line-height: 55px;
+      select {
+        background: none;
+        border: 1px solid $unfinish;
+        width: 85px;
+        height: 45px;
+        color: $font-black;
+        cursor: pointer;
+      }
+
+      span {
+        background-color: $basic-white;
+        color: $font-black;
+        line-height: 45px;
+      }
+    }
+
+    .confirm_message {
+      width: 345px;
+      font-size: 14px;
+      text-align: center;
+      padding: 40px 0 30px;
+      span {
+        color: $link-blue;
+      }
+    }
+
+    .send_btn {
+      background-color: $main-color;
+      color: $basic-white;
+      display: block;
+      width: 355px;
+      height: 50px;
+      margin: 10px auto 20px;
+      text-decoration: none;
+      font-size: 14px;
+      line-height: 50px;
+      text-align: center;
+      border-style: none;
+      cursor: pointer;
+
+      &:hover {
+        background-color: rgb(64, 209, 214);
+      }
+    }
+
+    .about_message {
+      color: $link-blue;
+      width: 345px;
+      margin-top: 20px;
+      font-size: 14px;
+      text-align: end;
+    }
+
+    .thank_message {
+      margin: 40px 0;
+      text-align: center;
+    }
+  } 
+}

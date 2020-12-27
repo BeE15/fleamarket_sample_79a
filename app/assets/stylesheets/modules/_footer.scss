@@ -1,0 +1,149 @@
+.footer{
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  position: relative;
+
+  .footer-banner{
+    height:360px;
+    padding: 100px 40px;
+    background-image: image-url("bg-appBanner-pict.jpg");
+    background-size: cover;
+    background-position:center;
+    
+      &__inner{
+        color: $basic-white;
+        text-align: center;
+
+        &--title{
+          font-size: 24px;
+          font-weight: bold;
+          line-height: 1.4;
+          text-shadow: 0 0 5px rgba(0,0,0,0.4);
+        }
+
+        &--text{
+          font-size: 35px;
+          text-shadow: 0 0 5px rgba(0,0,0,0.4);
+          margin-bottom: 20px;
+        }
+          a:hover{
+          opacity:0.6;
+          }
+      } 
+  }
+
+  .footer-footer{
+    height: 355px;
+    text-align: center;
+    background-color: #272727;
+    color: $basic-white;
+
+    &__contents{
+      max-width: 840px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-around;
+      padding-top: 60px;
+      a{
+        color: $basic-white;
+      }
+        a:hover{
+          text-decoration: underline;
+        }
+    
+      &--content{
+        &--head{
+          font-size: 16px;
+          font-weight: bold;
+        }
+        ul{
+          margin-top:20px;
+          li{
+            font-size: 12px;
+            line-height: 32px;
+          }
+        }
+      }
+    }
+
+    &__logo--text{
+      font-size: 14px;
+    }
+  }
+}
+
+
+.footer {
+  padding: 60px 0;
+  color: #fff;
+  background-color: #272727;
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  position: relative;
+  .footerTitles{
+    max-width: 840px;
+    margin: 0 auto;
+    display: flex;
+    .content1{
+      display: flex;
+      flex-direction: column;
+      width: calc(1 / 3 * 100%);
+      margin: 0 2% 0 0;
+      .content1-head{
+        margin: 0 0 20px;
+        font-size: 16px;
+        font-weight: bold;
+      }
+      ul {
+        list-style: none;
+        li {
+          margin: 0;
+          padding: 0;
+          a{
+            color: #fff;
+            text-decoration: none;
+            font-size: 12px;
+            line-height: 32px;
+          }
+        }
+      }
+    }
+  }
+  .footer-logo{
+    max-width: 160px;
+    width: 100%;
+    margin: 0 auto;
+    img{
+      width: 160px;
+      height: 46px;
+    }
+    p{
+      font-size: 14px;
+    }
+  }
+}
+.purchasebtn{
+  width: 120px;
+  background: #3CCACE;
+  text-align: center;
+  border-radius: 4%;
+  bottom: 32px;
+  right: 32px;
+  position: fixed;
+  padding: 15px;
+  &__text{
+    color: #fff;
+    display: block;
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
+  &__icon{
+    width: 60%;
+  }
+}
+
+a{
+  text-decoration: none;
+} 

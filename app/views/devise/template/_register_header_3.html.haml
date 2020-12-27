@@ -1,0 +1,22 @@
+.devise__header
+  = link_to root_path do
+    = image_tag asset_path("logo.png")
+  .progress_bar
+    .step
+      会員情報入力
+      .step__icon
+        .step__icon__bar.invisible
+        .step__icon__circle.step__icon__circle--active
+        .step__icon__bar.step__icon__bar--active
+    .step
+      住所入力
+      .step__icon
+        .step__icon__bar.step__icon__bar--active
+        .step__icon__circle.step__icon__circle--active
+        .step__icon__bar.step__icon__bar--active
+    .step.step--active
+      完了
+      .step__icon
+        .step__icon__bar.step__icon__bar--active
+        .step__icon__circle.step__icon__circle--active
+        .step__icon__bar.invisible

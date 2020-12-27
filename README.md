@@ -25,6 +25,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
+|image|string|null: false|
 |price|integer|null: false|
 |description|text|null: false|
 |status|string|null: false|

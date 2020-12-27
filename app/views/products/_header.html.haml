@@ -1,0 +1,45 @@
+.header
+  .headerTitle
+    .mainheader
+      %h1.icon
+        = link_to image_tag("logo.png"), root_path
+      .search
+        %form{action: "#",method: "get"}
+          %input.searchbox{"placeholder": "キーワードから探す"}
+          %button{"type": "submit"}
+            .buttonicon
+              = image_tag "icon-search1.png"
+    .navclass
+      %ul.leftbar
+        %li.left-left
+          = link_to "カテゴリー","#", id: "category-search"
+          -# .tree　カテゴリードロップダウン用
+          -#   %ul.category-parent
+          -#     - @parents.each do |parent|
+          -#       %li.treeitem
+          -#         = link_to "#", class: "category-parent-name" do
+          -#           = parent.name
+          -#   %ul.category-child
+          -#     - @parents.each do |parent|
+          -#       - parent.children.each do |child|
+          -#         %li
+          -#           = link_to "#", class: "category-child-name" do
+          -#             = child.name
+          -#   %ul.category-grandchild
+          -#     - @parents.each do |parent|
+          -#       - parent.children.each do |child|
+          -#         - child.children.each do |grandchild|
+          -#           %li
+          -#             = link_to "#", class: "category-grandchild-name" do
+          -#               = grandchild.name
+          %li.left-right
+          = link_to "ブランド","#"
+      %ul.rightbar
+        %li.right-left
+          - unless user_signed_in?
+            = link_to "ログイン", new_user_session_path, class: "post"
+          - if user_signed_in?
+            = link_to  "ログアウト", destroy_user_session_path, method: :delete
+        %li.right-right
+          - unless user_signed_in?
+            = link_to "新規登録画面", new_user_registration_path, class: "post"

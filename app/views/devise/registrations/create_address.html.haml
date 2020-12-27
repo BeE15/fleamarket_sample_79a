@@ -1,0 +1,17 @@
+.devise
+  .devise__wrapper
+    = render "devise/template/register_header_3"
+
+    .sign-up
+      .sign-up__top
+        会員登録完了
+
+      .sign-up__bottom
+        .thank_message
+          ありがとうございます。
+          %br/
+          会員登録が完了しました。
+
+        = link_to "FURIMAをはじめる", root_path, class: "send_btn"
+
+  = render "devise/template/footer"

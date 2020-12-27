@@ -1,0 +1,123 @@
+= render "products/header"
+.ShowMain
+  .MainContent
+    .TopContent
+      .ItemBox
+        %h2.ItemBox__Name
+          %p
+            = @product.name
+        .ItemBox__Images
+          %ul.ItemBox__Images--TopImage
+            %li
+              = image_tag @product_image.image.url, class: 'TopImage'
+          %ul.ItemBox__Images--BottomImage
+            - @product_images.each do |images|
+              %li
+                = image_tag images.image.url, class: 'BottomImage'
+        .ItemBox__Price
+          .ItemBox__Price--Price
+            = number_to_currency(@product.price, precision: 0, unit: "￥")
+          .ItemBox__Price--Detail
+            = @product.shipping_cost
+        .ItemBox__Detail
+          = @product.description
+        .ItemBox__Table
+          %table
+            %tr 
+              %th 出品者
+              %td
+                = @product.user.name
+            %tr
+              %th カテゴリー
+              %td
+                - @categories.each do |category|
+                  = link_to "#", class: 'Link' do
+                    = category.name
+                    %br/
+            %tr
+              %th ブランド
+              %td
+                - if @product.brand
+                  = @product.brand.name
+            %tr
+              %th 商品のサイズ
+              %td
+                - if @product.size
+                  = @product.size.name
+            %tr
+              %th 商品の状態
+              %td
+                = @product.status
+            %tr
+              %th 配送料の負担
+              %td
+                = @product.shipping_cost
+            %tr
+              %th 発送元の地域
+              %td
+                = link_to "#", class: 'Link' do
+                  = @product.prefecture.name
+            %tr
+              %th 発送日の目安
+              %td
+                = @product.days
+        %ul.ItemBox__Optional
+          %li.Favorite
+            = link_to "#", class: 'Favorite__Btn' do
+              = icon('fas', 'star')
+              お気に入り 1
+          %li.InappropriateProductReporting
+            = link_to "#", class: 'InappropriateProductReporting__Btn' do
+              = icon('fas', 'flag')
+              不適切な商品の通報
+      - if @purchase_history
+        .SoldOutBox
+          .SoldOutBox__Msg
+            売り切れました
+      - elsif user_signed_in? && current_user.id == @product.user_id
+        .EditBox
+          = link_to "#", class: 'EditBox__Btn EditBox__Btn--EditBtn' do
+            商品の編集
+          .OR
+            or
+          = link_to product_path, method: :delete, data: { confirm: "商品を削除します。よろしいですか？" }, class: 'EditBox__Btn EditBox__Btn--DeleteBtn' do
+            商品の削除
+      - else !(user_signed_in?) || current_user.id ==! @product.user_id
+        .ToBuyBox
+          = link_to new_buyer_path(@product.id), class: 'ToBuyBox__ToBuyBtn' do
+            購入画面に進む
+      -# 《⬇︎コメント機能は実装するかわからないので形だけ》
+      .CommentBox
+        .CommentForm
+          .CommentForm__Text
+          .CommentForm__NoticeMsg
+            相手のことを考え丁寧なコメントを心がけましょう。
+            %br 不快な言葉遣いなどは利用制限や退会処分となることがあります。
+          = link_to "#", class: 'CommentForm__SendBtn' do
+            = icon('fas', 'comment')
+            コメントする
+    %ul.BeforeAndAfterItems
+      %li
+        = link_to "#", class: 'BeforeAndAfterItems__Btn' do
+          < 前の商品
+      %li
+        = link_to "#", class: 'BeforeAndAfterItems__Btn' do
+          後ろの商品 >
+    .RelatedItems
+      .RelatedItems__CategoryName
+        = link_to "#", class: 'RelatedItems__CategoryName--Btn' do
+          レディースをもっと見る
+      .RelatedItems__ItemList
+      = link_to "#", class: 'RelatedItems__ItemList--Item' do
+        .RelatedItemImage
+        .RelatedItemDetail
+          .RelatedItemDetail__Name
+            %h3 テスト
+          .RelatedItemDetail__Details
+            .Price
+              1000円
+              %p (税込)
+            .Favorites
+              = icon('fas', 'star')
+              1
+= render "products/footer"

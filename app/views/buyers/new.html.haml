@@ -1,6 +1,8 @@
 .Main
   .Header
     .TopLogoImage
+      = link_to root_path do
+        = image_tag asset_path('logo.png'), class: 'TopLogoImage__logo'
   .Content
     .PurchaseDetails
       -# = form_with, model: @buyer, class: 'Form', local: true do |f|
@@ -63,5 +65,6 @@
           = link_to "#", class: 'Link' do
             特定商取引に関する表記
     .BottomLogoImage
+      = image_tag asset_path('logo.png'), class: 'BottomLogoImage__logo'
     .Copyright
       © FURIMA

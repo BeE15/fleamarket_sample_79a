@@ -1,7 +1,39 @@
-@import "modules/buyers";
 @import "reset";
+@import "modules/color";
+@import "modules/header";
+@import "modules/footer";
+@import "modules/items_index";
+@import "modules/items_new";
+@import "modules/purchases_buy";
+@import "modules/user";
+@import "modules/users_show";
+@import "modules/flash";
+@import "modules/items_show";
+@import "modules/payment_cards_new";
+@import "modules/payment_cards_index";
+@import "categories";
+@import "products";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+@import "modules/buyers";
+
+
+@import "modules/main";
+
+
+@import "modules/header";
+@import "modules/footer";
+@import "modules/subheader";
+
+
+body {
+  font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
+}
+
+@import "modules/products";
+@import "font-awesome-sprockets";
+@import "font-awesome";
 @import "sidebar";
 @import "mypages";
 @import "cards";
 @import "logout";
-

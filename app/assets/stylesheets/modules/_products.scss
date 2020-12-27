@@ -1,0 +1,271 @@
+* {
+  box-sizing: border-box;
+}
+
+
+// 【show】
+.ShowMain {
+  width: 100vw;
+  height: 100%;
+  padding: 80px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f8f8f8;
+  .MainContent {
+    width: 700px;
+    .TopContent {
+      .ItemBox {
+        padding: 0px 40px 30px 40px;
+        background-color: #fff;
+        &__Name {
+          height: 61px;
+          text-align: center;
+          font-size: 24px;
+          font-weight: bold;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        &__Images {
+          height: 443px;
+          &--TopImage {
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: center;
+            li {
+              .TopImage {
+              width: 560px;
+              height: 346px;
+              object-fit: contain;
+              }
+            }
+          }
+          &--BottomImage {
+            display: flex;
+            justify-content: center;
+            li {
+              .BottomImage {
+              width: 140px;
+              height: 87px;
+              margin: 0px 5px;
+              object-fit: contain;
+              }
+            }
+          }
+        }
+        &__Price {
+          height: 77px;
+          margin: 30px 0px;
+          display: flex;
+          align-items: center;
+          flex-direction: column;
+          background-color: #fff;
+          &--Price {
+            height: 53px;
+            font-size: 46px;
+            font-weight: bold;
+            font-family: Arial;
+          }
+        }
+        &__Detail {
+          margin-bottom: 30px;
+        }
+        &__Table {
+          margin-bottom: 30px;
+          tr {
+            font-size: 14px;
+          }
+          th {
+            width: 152px;
+            padding: 8px;
+            border: 1px solid #dedede;
+            text-align: center;
+            background-color: #eee;
+          }
+          td {
+            width: 467px;
+            padding: 15px;
+            border: 1px solid #dedede;
+            .Link {
+              color: #3CCACE;
+              text-decoration: none;
+            }
+          }
+        }
+        &__Optional {
+          display: flex;
+          justify-content: space-between;
+          .Favorite {
+            padding: 6px 10px;
+            border: 1px solid #ffb340;
+            border-radius: 40px;
+            &__Btn {
+              color: #3CCACE;
+              text-decoration: none;
+            }
+          }
+          .InappropriateProductReporting {
+            padding: 6px 10px;
+            border: 1px solid #333;
+            border-radius: 4px;
+            &__Btn {
+              color: #333;
+              text-decoration: none;
+            }
+          }
+        }
+      }
+      .EditBox {
+        margin-top: 10px;
+        padding: 25px 0px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        background-color: #fff;
+        &__Btn {
+          width: 650px;
+          padding: 13px 0px;
+          text-align: center;
+          border-radius: 5px;
+          text-decoration: none;
+          color: #fff;
+          display: block;
+          &--EditBtn {
+            background-color: #3CCACE;
+          }
+          &--DeleteBtn {
+            background-color: gray;
+          }
+        }
+        .OR {
+          padding: 15px 0px;
+          text-align: center;
+        }
+      }
+      .ToBuyBox {
+        margin-top: 10px;
+        padding: 25px 0px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        background-color: #fff;
+        &__ToBuyBtn {
+          width: 650px;
+          padding: 13px 0px;
+          text-align: center;
+          border-radius: 5px;
+          text-decoration: none;
+          color: #fff;
+          background-color: #3CCACE;
+          display: block;
+        }
+      }
+      .SoldOutBox {
+        margin-top: 10px;
+        padding: 25px 0px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        background-color: #fff;
+        &__Msg {
+        width: 650px;
+        padding: 13px 0px;
+        text-align: center;
+        border-radius: 5px;
+        color: honeydew;
+        background-color: grey;
+        }
+      }
+      .CommentBox {
+        margin-top: 10px;
+        padding: 25px 0px;
+        background-color: #fff;
+        .CommentForm {
+          display: flex;
+          align-items: center;
+          flex-direction: column;
+          &__Text {
+            width: 652px;
+            height: 104px;
+            background-color: white;
+            border: 1px solid gray;
+          }
+          &__NoticeMsg {
+            width: 652px;
+            margin: 10px 0px;
+            padding: 8px;
+            font-size: 14px;
+            background-color: #f8f8f8;
+          }
+          &__SendBtn {
+            width: 60%;
+            margin-top: 10px;
+            padding: 13px 0px;
+            color: #fff;
+            font-size: 18px;
+            text-align: center;
+            border: 1px solid #3CCACE;
+            border-radius: 100px;
+            text-decoration: none;
+            background-color: #3CCACE;
+          }
+        }
+      }
+    }
+    .BeforeAndAfterItems {
+      margin-top: 10px;
+      display: flex;
+      justify-content: space-between;
+      &__Btn {
+        color: #3CCACE;
+        text-decoration: none;
+      }
+    }
+    .RelatedItems {
+      margin-top: 30px;
+      &__CategoryName {
+        padding: 24px 0px 8px;
+        &--Btn {
+          color: #3CCACE;
+          font-size: 22px;
+          font-weight: bold;
+          text-decoration: none;
+        }
+      }
+      &__ItemList {
+        margin-top: 30px;
+        &--Item {
+          width: 233px;
+          height: 245px;
+          text-decoration: none;
+          display: block;
+          background-color: #fff;
+          .RelatedItemImage {
+            width: 233px;
+            height: 150px;
+            background-image: url(https://d2v9opmik2a3uk.cloudfront.net/uploads/2020/05/26111036/a706e9c3a43aa42490b660e33eeb4430_1590491434-1024x683.jpg);
+            background-position: center;
+            background-size: cover;
+          }
+          .RelatedItemDetail {
+            padding: 16px;
+            color: #333;
+            &__Details {
+              margin-top: 3px;
+              font-weight: bold;
+              display: flex;
+              justify-content: space-between;
+              .Price {
+                font-family: Arial;
+                p {
+                  font-size: 10px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

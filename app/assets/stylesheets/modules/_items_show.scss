@@ -1,0 +1,128 @@
+@mixin table-border() {
+  border: solid 1px $background-offwhite;
+}
+@mixin btn-dec() {
+  margin: 0 auto;
+  background-color:$main-color;
+  border: 1px solid $main-color;
+  color: $basic-white;
+  cursor: pointer;
+  a {
+    color: $basic-white;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  :hover{
+    opacity: 0.8;
+  }
+}
+
+
+.wrapper {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  align-items: center;
+
+  .item-box {
+    min-width: 600px;
+    width: 50%;
+    margin: 0 auto;
+
+    .item {
+      background-color:$basic-white;
+      padding: 40px 50px;
+      color: $font-black;
+      text-align: center;
+      &__name {
+        margin-bottom: 10px;
+        font-weight: bold;
+        font-size: 30px;
+        position: relative;
+      }
+      .sold_out{
+        color: $basic-white;
+        background-color: red;
+        font-size: 20px;
+        font-weight: bold;
+        line-height: 40px;
+        width: 150px;
+        height: 40px;
+        margin: 0 auto;
+        
+      }
+      &__images {     
+        &__sub {
+          display: flex;
+          justify-content: center;
+          li {
+            margin: 10px;
+          }
+        }
+      }
+      &__price {
+        font-size: 30px;
+        font-weight: bold;
+        margin: 10px;
+        &__info {
+          font-size: 18px;
+          font-weight: normal;
+        }
+      }
+      &__details {
+        text-align: left;
+        padding: 20px;
+      }
+      &__table {
+        @include table-border();
+        width: 85%;
+        font-size: 13px;
+        margin: 0 auto;
+        margin-bottom: 20px;
+        tr {
+          @include table-border();
+          line-height: 40px;
+        }
+        th {
+          @include table-border();
+          width: 25%;
+          background-color: #ececec;
+          text-align: center;
+        }
+        a {
+          color: $font-black;
+        }
+        a:hover {
+          text-decoration: underline $main-color;
+        }
+      }
+      &__buy-btn {
+        width:350px;
+        height:50px;
+        line-height: 50px;
+        @include btn-dec();
+      }
+      .item__edit-btns {
+        padding: 20px 0;
+        width: 40%;
+        display: flex;
+        margin: 0 auto;
+        li {
+          width:100px;
+          height:40px;
+          line-height: 40px;
+          @include btn-dec();
+        }
+      }
+    }
+  }
+  
+  .pagenation {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    a {
+      color: $main-color;
+      font-size: 18px;
+    }
+  }
+}

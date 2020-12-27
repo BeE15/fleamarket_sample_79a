@@ -1,0 +1,582 @@
+@mixin form-label() {
+  label {
+    font-size: 14px;
+    font-weight: 600;
+    color: $font-black;
+  }
+  span {
+    border-radius: 2px;
+    display: inline-block;
+    font-weight: 600;
+    line-height: 1.4em;
+    font-size: 12.5px;
+    color: $basic-white;
+    margin-left: 8px;
+    padding: 0 4px;
+    background-color: $caution-red;
+  }
+}
+
+@mixin form-select() {
+  margin-top: 16px;
+  select {
+    height: 48px;
+    width: 620px;
+    padding: 0 16px;
+    border-radius: 4px;
+    border: 1px solid $unfinish;
+    background-color: $basic-white;
+    cursor: pointer;
+  }
+}
+
+* {
+  box-sizing: border-box;
+
+  .form-new {
+    background-color: white;
+    max-width: 700px;
+    margin: 0 auto;
+    padding-bottom: 5px;
+    a {
+      text-decoration: none;
+    }
+
+    //画像投稿フォーム
+    .form-image {
+      padding: 40px;
+      border-bottom: solid 1px $unfinish;
+      &__label {
+        @include form-label();
+      }
+      p {
+        margin-top: 16px;
+        font-size: 14px;
+        color: $font-black;
+      }
+      &__box{
+        display: block;
+        margin: 16px auto 0;
+        display: flex;
+        flex-wrap: wrap;
+      
+        //プレビュー表示欄のCSS
+        .prev-content {
+          display: flex;
+          .preview-box {
+            height: 162px;
+            width: 112px;
+            margin: 0 15px 10px 0;
+            .upper-box {
+              height: 140px;
+              width: 100%;
+              img{
+                width: 112px;
+                height: 140px;
+              }
+            }
+            .lower-box {
+              display: flex;
+              text-align: center;
+              .delete-box {
+                color: #00b0ff;
+                width: 100%;
+                height: 25px;
+                line-height: 25px;
+                border: 1px solid #eee;
+                background: #f5f5f5;
+                cursor: pointer;
+                color: black;
+                font-size: 12px;
+              }
+            }
+          }
+        }
+      
+        //投稿クリックエリアのCSS
+        .label-content{
+          margin-bottom: 10px;
+          width: 620px;
+          .label-box {
+            display: block;
+            border: 1px dashed #ccc;
+            position: relative;
+            background: #f5f5f5;
+            width: 100%;
+            height: 162px;
+            cursor: pointer;
+            &-visible {
+              position: absolute;
+              top: 50%;
+              left: 16px;
+              right: 16px;
+              text-align: center;
+              font-size: 14px;
+              line-height: 1.5;
+              font-weight: bold;
+              -webkit-transform: translate(0, -50%);
+              transform: translate(0, -50%);
+              pointer-events: none;
+              white-space: pre-wrap;
+              word-wrap: break-word;
+            }
+          }
+        }
+        .hidden-content {
+          .hidden-field {
+            display: none;
+          }
+          .hidden-checkbox {
+            display: none;
+          }
+        }
+      }
+    }
+    .form-item {
+      
+      padding: 40px;
+      border-bottom: solid 1px $unfinish;
+      &__name {
+        &__label {
+          @include form-label();
+        }
+        &__input {
+          margin-top: 16px;
+          input {
+            height: 48px;
+            width: 620px;
+            padding: 0 16px;
+            border-radius: 4px;
+            border: 1px solid $unfinish;
+          }
+        }
+      }
+
+      &__text {
+        margin-top: 32px;
+        &__label {
+          @include form-label();
+        }
+        &__input {
+          textarea {
+            margin-top: 16px;
+            font-size: 16px;
+            padding: 13px 16px;
+            border-radius: 4px;
+            border: 1px solid $unfinish;
+            resize: vertical;
+            width: 100%;
+            height: 160px;
+            box-sizing: border-box;
+          }
+        }
+        &__style-counter {
+          text-align: right;
+          font-size: 12px;
+          color: $fade-font;
+        }
+      }
+    }
+
+
+    .form-detail {
+      
+      padding: 40px;
+      border-bottom: solid 1px $unfinish;
+      p {
+        color: rgb(136, 136, 136);
+        font-size: 14px;
+        font-weight: 600px;
+        margin-bottom: 24px;
+        line-height: 1.4em;
+      }
+      &__category {
+        &__label {
+          @include form-label();
+        }
+        &__input {
+          @include form-select();
+          .select-default {
+            margin-bottom: 12px;
+          }
+        }
+      }
+
+      &__brand {
+        margin-top: 32px;
+        label {
+          font-size: 14px;
+          font-weight: 600;
+          color: $font-black;
+        }
+        span {
+          border-radius: 2px;
+          display: inline-block;
+          font-weight: 600;
+          line-height: 1.4em;
+          font-size: 12.5px;
+          color: $basic-white;
+          margin-left: 8px;
+          padding: 0 4px;
+          background-color: $fade-font;
+        }
+        &__input {
+          margin-top: 16px;
+          input {
+            height: 48px;
+            width: 620px;
+            padding: 0 16px;
+            border-radius: 4px;
+            border: 1px solid $unfinish;
+          }
+        }
+      }
+      
+      &__status {
+        margin-top: 32px;
+        &__label {
+          @include form-label();
+        }
+        &__input {
+          @include form-select();
+        }
+      }
+    }
+
+
+    .form-shipping {
+      
+      padding: 40px;
+      border-bottom: solid 1px $unfinish;
+      &__title {
+        display: flex;
+        font-size: 14px;
+        p {
+          color: rgb(136, 136, 136);
+          font-weight: 600px;
+          margin-bottom: 24px;
+          line-height: 1.4em;
+        }
+        a {
+          display: inline-block;
+          margin-left: 5px;
+        }
+      }
+      &__charge {
+        &__label {
+          @include form-label();
+        }
+        &__input {
+          @include form-select();
+        }
+      }
+      &__area {
+        margin-top: 32px;
+        &__label {
+          @include form-label();
+        }
+        &__input {
+          @include form-select();
+        }
+      }
+      &__days {
+        margin-top: 32px;
+        &__label {
+          @include form-label();
+        }
+        &__input {
+          @include form-select();
+        }
+      }
+    }
+
+
+    .form-price {
+      
+      padding: 40px 40px 0px;
+      &__title {
+        display: flex;
+        font-size: 14px;
+        p {
+          color: rgb(136, 136, 136);
+          font-weight: 600px;
+          margin-bottom: 24px;
+          line-height: 1.4em;
+        }
+        a {
+          display: inline-block;
+          margin-left: 5px;
+        }
+      }
+      &__value {
+        display: flex;
+        justify-content: space-between;
+        &__left {
+          @include form-label();
+        }
+        &__right {
+          input {
+            height: 48px;
+            text-align: right;
+            border-radius: 4px;
+            border: 1px solid $unfinish;
+            background-color: $basic-white;
+            margin-left: 10px;
+            padding-right: 20px;
+            width: 250px;
+          }
+        }
+      }
+      &__fee {
+        padding: 12px 0;
+        height: 70px;
+        line-height: 56px;
+        font-size: 14px;
+        color: $font-black;
+        border-bottom: 1px solid $unfinish;
+        span {
+          float: right;
+        }
+      }
+      &__plofit {
+        padding-top: 12px;
+        height: 58px;
+        line-height: 44px;
+        font-size: 14px;
+        color: $font-black;
+        span {
+          float: right; 
+        }
+      }
+    }
+
+
+    .form-btn {
+      width: 360px;
+      
+      margin: 32px 170px;
+      &__top {
+        cursor: pointer;
+        input {
+          color: $basic-white;
+          background-color: $main-color;
+          display: inline-block;
+          height: 46px;
+          line-height: 46px;
+          font-size: 17px;
+          border: 1px solid;
+          border-radius: 4px;
+          border-color:$main-color;
+          text-align: center;
+          font-weight: 600;
+          width: 100%;
+        }
+      }
+      &__midle {
+        margin-top: 24px;
+        a {
+          color: $font-black;
+          background-color: $unfinish;
+          display: inline-block;
+          height: 46px;
+          line-height: 46px;
+          font-size: 17px;
+          border-radius: 4px;
+          text-align: center;
+          font-weight: 600;
+          width: 100%;
+        }
+      }
+      &__bottom {
+        text-align: center;
+        margin-top: 24px;
+        a {
+          color: $link-blue;
+          font-size: 14px;
+        }
+      }
+    }
+
+
+    .form-term {
+      width: 620px;
+      height: 32.5px;
+      margin: 0 40px 64px;
+      font-size: 12.5px;
+      color: $font-black;
+    }
+  }
+}
+
+
+
+.post__drop__box__container{
+  display: block;
+  margin: 16px auto 0;
+  display: flex;
+  flex-wrap: wrap;
+
+  //プレビュー表示欄のCSS
+  .prev-content {
+    display: flex;
+    .preview-box {
+      height: 162px;
+      width: 112px;
+      margin: 0 15px 10px 0;
+      .upper-box {
+        height: 112px;
+        width: 100%;
+        img{
+          width: 112px;
+          height: 112px;
+        }
+      }
+      .lower-box {
+        display: flex;
+        text-align: center;
+        .update-box {
+          color: #00b0ff;
+          width: 50%;
+          height: 50px;
+          line-height: 50px;
+          border: 1px solid #eee;
+          background: #f5f5f5;
+          cursor: pointer;
+        }
+        .delete-box {
+          color: #00b0ff;
+          width: 50%;
+          height: 50px;
+          line-height: 50px;
+          border: 1px solid #eee;
+          background: #f5f5f5;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  //投稿クリックエリアのCSS
+  .label-content{
+    margin-bottom: 10px;
+    width: 620px;
+    .label-box {
+      display: block;
+      border: 1px dashed #ccc;
+      position: relative;
+      background: #f5f5f5;
+      width: 100%;
+      height: 162px;
+      cursor: pointer;
+      &__text-visible {
+        position: absolute;
+        top: 50%;
+        left: 16px;
+        right: 16px;
+        text-align: center;
+        font-size: 14px;
+        line-height: 1.5;
+        font-weight: bold;
+        -webkit-transform: translate(0, -50%);
+        transform: translate(0, -50%);
+        pointer-events: none;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    }
+  }
+
+
+  .hidden-content {
+    .hidden-field {
+      // display: none;
+    }
+    .hidden-checkbox {
+      // display: none;
+    }
+  }
+}
+
+
+
+
+
+// 根岸お試し
+
+//image投稿欄のCSS
+.post__drop__box__container{
+  display: block;
+  margin: 16px auto 0;
+  display: flex;
+  flex-wrap: wrap;
+
+  //プレビュー表示欄のCSS
+  .prev-content {
+    display: flex;
+    .preview-box {
+      height: 162px;
+      width: 112px;
+      margin: 0 15px 10px 0;
+      .upper-box {
+        height: 112px;
+        width: 100%;
+        img{
+          width: 112px;
+          height: 112px;
+        }
+      }
+      .lower-box {
+        display: flex;
+        text-align: center;
+        .update-box {
+          color: #00b0ff;
+          width: 50%;
+          height: 50px;
+          line-height: 50px;
+          border: 1px solid #eee;
+          background: #f5f5f5;
+          cursor: pointer;
+        }
+        .delete-box {
+          color: #00b0ff;
+          width: 50%;
+          height: 50px;
+          line-height: 50px;
+          border: 1px solid #eee;
+          background: #f5f5f5;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  //投稿クリックエリアのCSS
+  .label-content{
+    margin-bottom: 10px;
+    width: 620px;
+    .label-box {
+      display: block;
+      border: 1px dashed #ccc;
+      position: relative;
+      background: #f5f5f5;
+      width: 100%;
+      height: 162px;
+      cursor: pointer;
+      &__text-visible {
+        position: absolute;
+        top: 50%;
+        left: 16px;
+        right: 16px;
+        text-align: center;
+        font-size: 14px;
+        line-height: 1.5;
+        font-weight: bold;
+        -webkit-transform: translate(0, -50%);
+        transform: translate(0, -50%);
+        pointer-events: none;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    }
+  }
+}
