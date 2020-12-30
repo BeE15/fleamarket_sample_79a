@@ -212,7 +212,25 @@
           .form-detail__category__input .select-default {
             margin-bottom: 12px;
           }
-          .form-detail__category__input select {
+          .parent_category_box {
+            height: 48px;
+            width: 620px;
+            padding: 0 16px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            background-color: white;
+            cursor: pointer;
+          }
+          .item_input__body__category__children--select{
+            height: 48px;
+            width: 620px;
+            padding: 0 16px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            background-color: white;
+            cursor: pointer;
+          }
+          .item_input__body__category__grandchildren--select{
             height: 48px;
             width: 620px;
             padding: 0 16px;

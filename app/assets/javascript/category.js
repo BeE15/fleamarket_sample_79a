@@ -2,12 +2,13 @@ $(function(){
   // カテゴリーセレクトボックスのオプションを作成
   function appendOption(category){
     let html = `<option value="${category.id}" data-category="${category.id}">${category.name}</option>`;
+    console.log(category.id)
     return html;
   }
   // 子カテゴリーの表示作成
   function appendChildrenBox(insertHTML){
     let childSelectHtml = '';
-    childSelectHtml = `<select class="item_input__body__category__children--select" id="children_category">
+    childSelectHtml = `<select class="item_input__body__category__children--select" id="children_category" name="category_id">
                         <option value="" data-category="" >選択してください</option>
                         ${insertHTML}</select>
                       <i class = "fa fa-chevron-down"></i>`;
@@ -18,7 +19,7 @@ $(function(){
   function appendGrandchildrenBox(insertHTML) {
     let grandchildSelectHtml = '';
     grandchildSelectHtml =
-      `<select class="item_input__body__category__grandchildren--select" id="grandchildren_category" name="item[category_id]">
+      `<select class="item_input__body__category__grandchildren--select" id="grandchildren_category" name="product[category_id]">
         <option value="" data-category="" >選択してください</option>
         ${insertHTML}</select>
       <i class = </i>`;
@@ -33,7 +34,7 @@ $(function(){
     if (parentCategory != "") {
       $.ajax( {
         type: 'GET',
-        url: 'get_category_children',
+        url: '/products/get_category_children',
         data: { parent_name: parentCategory },
         dataType: 'json'
       })
@@ -67,7 +68,7 @@ $(function(){
     //子カテゴリーが初期値でない場合
     if (childId != ""){
       $.ajax({
-        url: 'get_category_grandchildren',
+        url: '/products/get_category_grandchildren',
         type: 'GET',
         data: { child_id: childId },
         datatype: 'json'

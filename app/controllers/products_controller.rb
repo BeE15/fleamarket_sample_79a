@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   # before_action :set_category, only: [:new, :edit, :create, :update, :destroy]
-  before_action :set_product, except: [:index, :new, :create]
+  before_action :set_product, except: [:index, :new, :create, :get_category_children, :get_category_grandchildren]
   
   def index
     @products = Product.all.order('created_at DESC')
@@ -33,7 +33,7 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @categories = @product.categories
+    @category = @product.category
     @product_image = ProductImage.find_by(product_id: params[:id])
     @product_images = ProductImage.all.where(product_id: params[:id])
     @purchase_history = PurchaseHistory.find_by(product_id: params[:id])
@@ -114,7 +114,7 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:name, :description, :brand_id, :size_id, :status, :shipping_cost,:prefecture_id, :days, :price, product_images_attributes: [:image]).merge(user_id: current_user.id)
+    params.require(:product).permit(:name, :description, :brand_id, :size_id, :category_id, :status, :shipping_cost,:prefecture_id, :days, :price, product_images_attributes: [:image]).merge(user_id: current_user.id)
   end
 
   def productedit_params
