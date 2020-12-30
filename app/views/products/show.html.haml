@@ -32,13 +32,13 @@
               %td
                 = link_to "#", class: 'Link' do
                   = @category.root.name
-                  <br>
+                  %br
                 - if @category.parent.present?
                   = @category.parent.name
-                  <br>
+                  %br
                 - if @category.parent.present?
                   = @category.name
-                  %br/
+                  %br
             %tr
               %th ブランド
               %td
