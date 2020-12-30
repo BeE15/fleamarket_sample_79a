@@ -30,7 +30,7 @@
             %tr
               %th カテゴリー
               %td
-                .link
+                = link_to "#", class: 'Link' do
                   = @category.root.name
                   <br>
                 - if @category.parent.present?
