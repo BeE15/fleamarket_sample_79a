@@ -41,35 +41,20 @@
             = f.text_area :description, placeholder: "商品の説明（必須1,000文字以内(色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
       .form-detail
         %p 商品の詳細
-        -# .form-detail__category
-        -#   .form-detail__category__label
-        -#     = form_with(model: @product, local: true) do |f|
-        -#       .form-detail__category__label
-        -#         %label カテゴリー
-        -#         %span 必須
-        -#       .form-detail__category__input
-        -#         %select#category_select.select-default{name: "item[category_id]"}
-        -#           %option{value: ""} 選択して下さい
-        -#           %option{value: "1"} レディース
-        -#           %option{value: "61"} メンズ
-        -#           %option{value: "111"} ベビー/キッズ
-        -#           %option{value: "149"} 本・音楽・ゲーム
-        -#           %option{value: "190"} ハンドメイド
-        -#         = f.select :category_id, options_for_select( @category_parent_array.map{|c| [c[:name], c[:id]]}),{include_blank: "選択してください"}, { class: "parent_category_box", id: "parent_category"}
-        -#         -# = icon('fa', 'chevron-down')
-        -#         .pulldown.item_input__body__category__children#children_box
-        -#         .pulldown.item_input__body__category__grandchildren#grandchildren_box
-        -# .item_input__body
-        -#   = form_with(model: @product, local: true) do |f|
-        -#     .item_input__body__category#category_box
-        -#       .pulldown#partent_box
-        -#         = f.select :category_id, options_for_select( @category_parent_array.map{|c| [c[:name], c[:id]]}),{include_blank: "選択してください"}, { class: "parent_category_box", id: "parent_category"}
-        -#         = icon('fa', 'chevron-down')
-
-        -#       .pulldown.item_input__body__category__children#children_box
-        -#         -#親カテゴリー選択によって子カテゴリー表示
-        -#       .pulldown.item_input__body__category__grandchildren#grandchildren_box
-        -#         子カテゴリー選択によって孫カテゴリー表示
+        .form-detail__category
+          .form-detail__category__label
+            .form-detail__category__label
+              %label カテゴリー
+              %span 必須
+            .form-detail__category__input
+        .item_input__body
+          .item_input__body__category#category_box
+            .pulldown#partent_box
+              = f.collection_select :category_id, Category.roots, :id, :name, {include_blank: "選択してください"}, class: "parent_category_box", id: "parent_category"
+            .pulldown.item_input__body__category__children#children_box
+              -#親カテゴリー選択によって子カテゴリー表示
+            .pulldown.item_input__body__category__grandchildren#grandchildren_box
+              -# 子カテゴリー選択によって孫カテゴリー表示
         .form-detail__size
           .form-detail__size__label
             %label サイズ

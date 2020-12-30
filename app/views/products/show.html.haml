@@ -30,10 +30,15 @@
             %tr
               %th カテゴリー
               %td
-                - @categories.each do |category|
-                  = link_to "#", class: 'Link' do
-                    = category.name
-                    %br/
+                = link_to "#", class: 'Link' do
+                  = @category.root.name
+                  %br
+                - if @category.parent.present?
+                  = @category.parent.name
+                  %br
+                - if @category.parent.present?
+                  = @category.name
+                  %br
             %tr
               %th ブランド
               %td
