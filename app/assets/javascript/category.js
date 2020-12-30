@@ -2,7 +2,6 @@ $(function(){
   // カテゴリーセレクトボックスのオプションを作成
   function appendOption(category){
     let html = `<option value="${category.id}" data-category="${category.id}">${category.name}</option>`;
-    console.log(category.id)
     return html;
   }
   // 子カテゴリーの表示作成
