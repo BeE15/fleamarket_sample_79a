@@ -8,7 +8,11 @@ Rails.application.routes.draw do
     get '/users/sign_out', to: 'devise/sessions#destroy'
   end
 
-  root 'products#index'
+  # root 'products#index'
+
+  # root 'buyers#new'
+
+  root 'mypages#show'
 
   resources :payment_cards, only: [:new, :create, :index, :destroy]
   resources :items do
@@ -48,8 +52,23 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :buyers, only: [:new, :create]
+  # resources :buyers, only: [:new, :create]
 
   resources :products, only: [:index, :new, :show, :destroy, :create]
+
+
+  resources :cards, only: [:new, :show] do
+    collection do
+      post 'show', to: 'cards#show'
+      post 'pay', to: 'cards#pay'
+      delete 'delete', to: 'cards#delete'      
+    end
+  end
+  resources :buyers, only: [:index, :new, :create] do
+    collection do
+      get 'index', to: 'buyers#index'
+      post 'pay', to: 'buyers#pay'
+    end
+  end
   
 end
