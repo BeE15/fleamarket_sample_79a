@@ -8,11 +8,11 @@ Rails.application.routes.draw do
     get '/users/sign_out', to: 'devise/sessions#destroy'
   end
 
-  # root 'products#index'
+  root 'products#index'
 
   # root 'buyers#new'
 
-  root 'mypages#show'
+  # root 'mypages#show'
 
   resources :payment_cards, only: [:new, :create, :index, :destroy]
   resources :items do
@@ -52,7 +52,7 @@ Rails.application.routes.draw do
     end
   end
 
-  # resources :buyers, only: [:new, :create]
+  
 
   resources :products, only: [:index, :new, :show, :destroy, :create]
 
