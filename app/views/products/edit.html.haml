@@ -1,3 +1,133 @@
-= render "products/header"
-= render partial: 'form'
-= render "products/footer"
+.devise__header
+  = link_to root_path do
+    = image_tag asset_path("logo_1.png")
+.wrapper
+  .form-new
+    = form_with model: @product, local: true do |f|
+      .form-image
+        .form-image__label
+          %label 出品画像
+          %span 必須
+        %p 最大3枚までアップロードできます
+        .image-box
+          - @product.product_images.each_with_index do |images, n|
+            %div{class: "prev-contents#{n}"}
+              .prev-content
+                = f.fields_for :product_images, images do |i|
+                  - unless images.image?
+                    = i.label :image, for: "#{n}", class: "linking" do
+                      = image_tag asset_path("ファイル選択.png"), class: "linkingimage"
+                      = i.file_field :image, type: 'file', id: "#{n}", class: "js-file#{n}", name: "product_images[image][]"
+                    .prev-contents3
+                  - if images.image?
+                    = image_tag images.image.url, alt: "preview", class: "prev-image#{n}a"
+                    .delete
+                      = i.label :_destroy do
+                        %a{class: "deletebtn#{n}a"}
+                          削除
+                        = i.check_box :_destroy, data: { index: i.index }, class: "hidden-destroy#{n}"
+                - if images.image?
+                  = label_tag :image, for: "#{n}", class: "linking" do
+                    = image_tag asset_path("ファイル選択.png"), class: "linkingimage"
+                    = file_field_tag :image, type: 'file', id: "#{n}", class: "js-file#{n}", name: "product_images[image][]"
+      .form-item
+        .form-item__name
+          .form-item__name__label
+            %label 商品名
+            %span 必須
+          .form-item__name__input
+            = f.text_field :name, placeholder: "最大40文字"
+        .form-item__text
+          .form-item__text__label
+            %label 商品の説明
+            %span 必須
+          .form-item__text__input
+            = f.text_area :description, placeholder: "商品の説明（必須1,000文字以内(色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
+      .form-detail
+        %p 商品の詳細
+        .form-detail__category
+          .form-detail__category__label
+            .form-detail__category__label
+              %label カテゴリー
+              %span 必須
+            .form-detail__category__input
+        .item_input__body
+          .item_input__body__category#category_box
+            .pulldown#partent_box
+              = f.collection_select :category_id, Category.roots, :id, :name, {include_blank: "選択してください"}, class: "parent_category_box", id: "parent_category"
+            .pulldown.item_input__body__category__children#children_box
+              -#親カテゴリー選択によって子カテゴリー表示
+            .pulldown.item_input__body__category__grandchildren#grandchildren_box
+              -# 子カテゴリー選択によって孫カテゴリー表示
+        .form-detail__size
+          .form-detail__size__label
+            %label サイズ
+            %span 任意
+          .form-detail__size__input
+            = f.collection_select :size_id, Size.all, :id, :name, prompt: "選択してください"
+        .form-detail__brand
+          .form-detail__brand__label
+            %label ブランド
+            %span 任意
+          .form-detail__brand__input
+            = f.collection_select :brand_id, Brand.all, :id, :name, prompt: "選択してください"
+        .form-detail__status
+          .form-detail__status__label
+            %label 商品の状態
+            %span 必須
+          .form-detail__status__input
+            = f.select :status, options_for_select(["新品、未使用", "未使用に近い", "目立った傷や汚れなし", "やや傷や汚れあり", "傷や汚れあり", "全体的に状態が悪い"], selected: @product.status), prompt: "選択してください"
+      .form-shipping
+        .form-shipping__title
+          %p 配送について
+        .form-shipping__charge
+          .form-shipping__charge__label
+            %label 配送料の負担
+            %span 必須
+          .form-shipping__charge__input
+            = f.select :shipping_cost, options_for_select(["送料込み（出品者負担）", "着払い（購入者負担）"], selected: @product.shipping_cost), prompt: "選択してください"
+        .form-shipping__area
+          .form-shipping__area__label
+            %label 発送元の地域
+            %span 必須
+          .form-shipping__area__input
+            .form-shipping__area__input.icon-relative
+              = f.collection_select :prefecture_id, Prefecture.all, :id , :name, prompt: "選択してください", class: 'prefecture'
+        .form-shipping__days
+          .form-shipping__days__label
+            %label 発送までの日数
+            %span 必須
+          .form-shipping__days__input
+            = f.select :days, options_for_select(["1日〜2日で発送", "2日〜3日で発送", "3日〜4日で発送", "4日〜7日で発送"], selected: @product.days), prompt: "選択してください"
+      .form-price
+        .form-price__title
+          %p 価格（¥300~9,999,999）
+        .form-price__value
+          .form-price__value__left
+            %label 販売価格
+            %span 必須
+          .form-price__value__right
+            %span ¥
+            = f.text_field :price, :placeholder => "0"
+      .form-btn
+        .form-btn__top
+          = f.submit '更新する'
+        .form-btn__midle
+          = link_to "#" do
+            下書きに保存
+        .form-btn__bottom
+          = link_to root_path do
+            もどる
+    .form-term
+      禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。
+  .devise__footer
+    .devise__footer__nav
+      %ul
+        %li プライバシーポリシー
+        %li FURIMA利用規約
+        %li 特定商取引に関する表記
+    = link_to root_path do
+      = image_tag asset_path("logo-white_1.png")
+    .devise__footer__copywirte
+      %small
+        © FURIMA, Inc.

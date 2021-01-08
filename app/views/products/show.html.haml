@@ -30,10 +30,15 @@
             %tr
               %th カテゴリー
               %td
-                - @categories.each do |category|
-                  = link_to "#", class: 'Link' do
-                    = category.name
-                    %br/
+                = link_to "#", class: 'Link' do
+                  = @category.root.name
+                  %br
+                - if @category.parent.present?
+                  = @category.parent.name
+                  %br
+                - if @category.parent.present?
+                  = @category.name
+                  %br
             %tr
               %th ブランド
               %td
@@ -76,7 +81,7 @@
             売り切れました
       - elsif user_signed_in? && current_user.id == @product.user_id
         .EditBox
-          = link_to "#", class: 'EditBox__Btn EditBox__Btn--EditBtn' do
+          = link_to edit_product_path, class: 'EditBox__Btn EditBox__Btn--EditBtn' do
             商品の編集
           .OR
             or
