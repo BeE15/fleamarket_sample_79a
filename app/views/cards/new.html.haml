@@ -6,7 +6,7 @@
     .main-box
       .card-main
         .contents-add-input
-          = form_with(model: @card, url: cards_path, method: :post, local: true) do |f|
+          = form_with model: @card, url: pay_cards_path, method: :post, id: "inputForm", local: true do |f|
             .add-head
             %h2
               クレジットカード情報入力
@@ -18,32 +18,35 @@
                   %span
                     必須
                   .name-first
-                    = f.text_field :card_number, class: "number", placeholder: "半角数字のみ" ,maxlength: "16", type: "text"                                    
+                    = f.text_field :card_number, class: "number", placeholder: "半角数字のみ" ,maxlength: "16", type: "text", name:"card_number"                                  
                 .form-group
                   %label
                     有効期限
                     %span
                       必須
                   .select-wrap
-                    .select-wrap-half                     
+                    .select-wrap-half
+                      = f.select :exp_month, [["01",1],["02",2],["03",3],["04",4],["05",5],["06",6],["07",7],["08",8],["09",9],["10",10],["11",11],["12",12]],{} , class: 'input-expire'            
                       %p
                         月
-                    .select-wrap-half                     
+                    .select-wrap-half
+                      = f.select :exp_year, [["20",2020],["21",2021],["22",2022],["23",2023],["24",2024],["25",2025],["26",2026],["27",2027],["28",2028],["29",2029]],{} , class: 'input-expire'
                       %p
                         年
+
                 .form-group
                   %label
                     セキュリティコード
                   %span
                     必須
                   .name-first
-                    = f.text_field :pin_number, class: "input-default", placeholder: "カード背面4桁もしくは3桁の番号" ,maxlength: "4"
+                    = f.text_field :cvc, class: "input-default", placeholder: "カード背面4桁もしくは3桁の番号" ,maxlength: "4", name:"cvc"
                   .signup-seqcode
                     %p
                       カード背面の番号とは？
-                .next-button
-                  #card_token
-                  = f.submit "追加する", id: "token_submit",class: 'add-btn'
+                .next-button#card_token
+                  = f.submit "追加する", id: "token_submit",class: 'add-btn'   
+                        
   .Footer
     .Terms
       %ul.Terms__Links

@@ -1,0 +1,40 @@
+.main
+  .Header
+    .TopLogoImage
+  .Content1
+    = render 'mypages/sidebar'
+    .main-box
+      .card-main
+        .contents-add-input
+          %h2
+            登録クレジットカード情報
+          .add-bottom
+            .add-bottom-form
+              .form-group
+                %br カード番号
+                = "**** **** **** " + @default_card_information.last4
+                %br 有効期限 月/年
+                - exp_month = @default_card_information.exp_month.to_s
+                - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+                = exp_month + " / " + exp_year
+        .card-edit-area
+          .card-edit-area__button
+            .content-box__buy-btn           
+              = link_to "カードを削除する", delete_cards_path{@card.id}, method: "delete", class: "content__buy-btn__submit"
+             
+
+  .Footer
+    .Terms
+      %ul.Terms__Links
+        %li.Terms__Links--PrivacyPolicy
+          = link_to "#", class: 'Link' do
+            プライバシーポリシー
+        %li.Terms__Links--TermsOfService
+          = link_to "#", class: 'Link' do
+            FURIMA利用規約
+        %li.Terms__Links--NotationRelatedToSpecificCommercialTransactions
+          = link_to "#", class: 'Link' do
+            特定商取引に関する表記
+    .BottomLogoImage
+    .Copyright
+      © FURIMA

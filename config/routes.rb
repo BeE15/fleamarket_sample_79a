@@ -10,6 +10,10 @@ Rails.application.routes.draw do
 
   root 'products#index'
 
+  # root 'buyers#new'
+
+  # root 'mypages#show'
+
   resources :payment_cards, only: [:new, :create, :index, :destroy]
   resources :items do
     resources :favorites, only: [:create, :destroy]
@@ -52,5 +56,27 @@ Rails.application.routes.draw do
       get 'get_category_grandchildren', defaults: { format: 'json' }
     end
   end
+
+
+  
+
+  resources :products, only: [:index, :new, :show, :destroy, :create]
+
+
+  resources :cards, only: [:new, :show] do
+    collection do
+      post 'show', to: 'cards#show'
+      post 'pay', to: 'cards#pay'
+      delete 'delete', to: 'cards#delete'      
+    end
+  end
+  resources :buyers, only: [:index, :new, :create] do
+    collection do
+      get 'index', to: 'buyers#index'
+      post 'pay', to: 'buyers#pay'
+    end
+  end
+
+
   
 end
