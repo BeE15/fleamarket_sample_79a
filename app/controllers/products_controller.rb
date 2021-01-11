@@ -44,6 +44,8 @@ class ProductsController < ApplicationController
     count = @product.product_images.count
     image_count = 2
     (image_count - count).times { @product.product_images.build }
+    # binding.pry
+    
   end
 
   def update
@@ -92,6 +94,7 @@ class ProductsController < ApplicationController
       (image_count - count).times { @product.product_images.build }
       render :edit
     end
+
   end
 
   def destroy
