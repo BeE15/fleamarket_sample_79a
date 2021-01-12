@@ -8,9 +8,9 @@ Rails.application.routes.draw do
     get '/users/sign_out', to: 'devise/sessions#destroy'
   end
 
-  root 'products#index'
+  # root 'products#index'
 
-  # root 'buyers#new'
+  root 'buyers#index'
 
   # root 'mypages#show'
 
