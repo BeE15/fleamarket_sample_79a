@@ -212,7 +212,25 @@
           .form-detail__category__input .select-default {
             margin-bottom: 12px;
           }
-          .form-detail__category__input select {
+          .parent_category_box {
+            height: 48px;
+            width: 620px;
+            padding: 0 16px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            background-color: white;
+            cursor: pointer;
+          }
+          .item_input__body__category__children--select{
+            height: 48px;
+            width: 620px;
+            padding: 0 16px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            background-color: white;
+            cursor: pointer;
+          }
+          .item_input__body__category__grandchildren--select{
             height: 48px;
             width: 620px;
             padding: 0 16px;
@@ -528,40 +546,74 @@
       .linkingimage {
         width: 130px;
       }
+      .js-file0 {
+        display: none;
+      }
       .js-file1 {
         display: none;
       }
       .js-file2 {
         display: none;
       }
-      .js-file3 {
-        display: none;
-      }
     }
+  }
+
+  .prev-contents3 {
+    display: none;
   }
 
   .prev-content {
     display: flex;
     align-items: center;
     flex-direction: column;
+    .hidden-destroy0 {
+      display: none;
+    }
+    .prev-image0 {
+      width: 130px;
+    }
+    .prev-image0a {
+      width: 130px;
+    }
+    .deletebtn0 {
+      margin: 20px 0px;
+      color: red;
+    }
+    .deletebtn0a {
+      margin: 20px 0px;
+      color: red;
+    }
+    .hidden-destroy1 {
+      display: none;
+    }
     .prev-image1 {
+      width: 130px;
+    }
+    .prev-image1a {
       width: 130px;
     }
     .deletebtn1 {
       margin: 20px 0px;
       color: red;
     }
+    .deletebtn1a {
+      margin: 20px 0px;
+      color: red;
+    }
+    .hidden-destroy2 {
+      display: none;
+    }
     .prev-image2 {
+      width: 130px;
+    }
+    .prev-image2a {
       width: 130px;
     }
     .deletebtn2 {
       margin: 20px 0px;
       color: red;
     }
-    .prev-image3 {
-      width: 130px;
-    }
-    .deletebtn3 {
+    .deletebtn2a {
       margin: 20px 0px;
       color: red;
     }

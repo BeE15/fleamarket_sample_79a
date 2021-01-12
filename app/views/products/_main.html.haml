@@ -51,17 +51,17 @@
   .threeitems
     %section.item
       %figure.item__img
-        = image_tag "/assets/icon-01.png"
+        = image_tag 'icon-01.png'
       %h3.item__subtitle 簡単に売り買いできる
       %p.item__detail スマホひとつで、いつでもどこでも簡単に出品・購入が可能！
     %section.item
       %figure.item__img
-        = image_tag "/assets/icon-03.png"
+        = image_tag 'icon-03.png'
       %h3.item__subtitle 売上金は即日振込みに対応
       %p.item__detail 午前9時までに振込を依頼いただければ、翌日に指定の口座に入金いたします！
     %section.item
       %figure.item__img
-        = image_tag "/assets/icon-04.png"
+        = image_tag 'icon-04.png'
       %h3.item__subtitle 様々な支払いに対応
       %p.item__detail お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法あります。
 %section.pickupkategori
@@ -85,8 +85,11 @@
                 .ItemDetail__Details
                   .Price
                     = "#{product.price}円"
-                    %p (税込)
-                    -# ↑表記が確定したら繋げる
+                    %p
+                      - if product.shipping_cost == "送料込み（出品者負担）"
+                        (税込)
+                      - else
+                        (税抜)
                   .Favorites
                     = icon('fas', 'star')
                     1
@@ -101,8 +104,11 @@
                 .ItemDetail__Details
                   .Price
                     = "#{product.price}円"
-                    %p (税込)
-                    -# ↑表記が確定したら繋げる
+                    %p
+                      - if product.shipping_cost == "送料込み（出品者負担）"
+                        (税込)
+                      - else
+                        (税抜)
                   .Favorites
                     = icon('fas', 'star')
                     1
@@ -127,7 +133,11 @@
               .ItemDetail__Details
                 .Price
                   = "#{product.price}円"
-                  %p (税込)
+                  %p
+                    - if product.shipping_cost == "送料込み（出品者負担）"
+                      (税込)
+                    - else
+                      (税抜)
                 .Favorites
                   = icon('fas', 'star')
                   1
@@ -142,7 +152,11 @@
               .ItemDetail__Details
                 .Price
                   = "#{product.price}円"
-                  %p (税込)
+                  %p
+                    - if product.shipping_cost == "送料込み（出品者負担）"
+                      (税込)
+                    - else
+                      (税抜)
                 .Favorites
                   = icon('fas', 'star')
                   1
