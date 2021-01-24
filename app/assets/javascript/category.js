@@ -10,7 +10,7 @@ $(function(){
     childSelectHtml = `<select class="item_input__body__category__children--select" id="children_category" name="category_id">
                         <option value="" data-category="" >選択してください</option>
                         ${insertHTML}</select>
-                      <i class = "fa fa-chevron-down"></i>`;
+                      </>`;
                   $('#children_box').append(childSelectHtml);
   }
 
@@ -21,6 +21,7 @@ $(function(){
       `<select class="item_input__body__category__grandchildren--select" id="grandchildren_category" name="product[category_id]">
         <option value="" data-category="" >選択してください</option>
         ${insertHTML}</select>
+      <i class = </i>`;
     $('#grandchildren_box').append(grandchildSelectHtml);
   }
 
