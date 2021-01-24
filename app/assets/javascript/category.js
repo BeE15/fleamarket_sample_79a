@@ -21,7 +21,6 @@ $(function(){
       `<select class="item_input__body__category__grandchildren--select" id="grandchildren_category" name="product[category_id]">
         <option value="" data-category="" >選択してください</option>
         ${insertHTML}</select>
-      <i class = </i>`;
     $('#grandchildren_box').append(grandchildSelectHtml);
   }
 
