@@ -8,7 +8,7 @@ require("@rails/ujs").start()
 require("@rails/activestorage").start()
 require("channels")
 require('jquery')
-// require("../create_token");
+require("../category");
 // require("../item_price");
 
 // Uncomment to copy all static images under ../images to the output folder and reference
