@@ -71,7 +71,9 @@ ActiveRecord::Schema.define(version: 2020_12_18_133806) do
     t.string "status", null: false
     t.string "days", null: false
     t.string "shipping_cost", null: false
-    t.bigint "category_id"
+    t.bigint "size_id"
+    t.bigint "brand_id"
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "prefecture_id", null: false
@@ -113,8 +115,6 @@ ActiveRecord::Schema.define(version: 2020_12_18_133806) do
   add_foreign_key "addresses", "users"
   add_foreign_key "product_images", "products"
   add_foreign_key "products", "brands"
-  add_foreign_key "products", "categories"
-  add_foreign_key "products", "sizes"
   add_foreign_key "products", "users"
   add_foreign_key "purchase_histories", "products"
 end

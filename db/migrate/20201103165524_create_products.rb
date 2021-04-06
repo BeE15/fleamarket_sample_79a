@@ -7,7 +7,10 @@ class CreateProducts < ActiveRecord::Migration[6.0]
       t.string :status, null: false
       t.string :days, null: false
       t.string :shipping_cost, null: false
-      t.references :category, foreign_key: true
+      t.references :size
+      t.string :size, null: false
+      t.references :brand, foreign_key: true, null: false
+      t.references :user, foreign_key: true, null: false
       t.timestamps
     end
   end
