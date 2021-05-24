@@ -74,6 +74,7 @@ ActiveRecord::Schema.define(version: 2020_12_18_133806) do
     t.bigint "size_id"
     t.bigint "brand_id"
     t.bigint "user_id", null: false
+    t.string "category_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "prefecture_id", null: false
@@ -81,7 +82,6 @@ ActiveRecord::Schema.define(version: 2020_12_18_133806) do
     t.bigint "size_id"
     t.bigint "brand_id"
     t.index ["brand_id"], name: "index_products_on_brand_id"
-    t.index ["category_id"], name: "index_products_on_category_id"
     t.index ["size_id"], name: "index_products_on_size_id"
     t.index ["user_id"], name: "index_products_on_user_id"
   end
@@ -115,6 +115,7 @@ ActiveRecord::Schema.define(version: 2020_12_18_133806) do
   add_foreign_key "addresses", "users"
   add_foreign_key "product_images", "products"
   add_foreign_key "products", "brands"
+  add_foreign_key "products", "sizes"
   add_foreign_key "products", "users"
   add_foreign_key "purchase_histories", "products"
 end

@@ -11,6 +11,7 @@ class CreateProducts < ActiveRecord::Migration[6.0]
       t.string :size, null: false
       t.references :brand, foreign_key: true, null: false
       t.references :user, foreign_key: true, null: false
+      t.string :category_id
       t.timestamps
     end
   end
