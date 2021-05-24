@@ -39,9 +39,10 @@
           - unless user_signed_in?
             = link_to "ログイン", new_user_session_path, class: "post"
           - if user_signed_in?
-            = link_to  "ログアウト", destroy_user_session_path, method: :delete
+            = link_to  "ログアウト", destroy_user_session_path, method: :delete           
         %li.right-right
           - unless user_signed_in?
             = link_to "新規登録画面", new_user_registration_path, class: "post"
           - if user_signed_in?
-            = link_to  "マイページ",mypage_path(1)
+            = link_to "マイページ",mypage_path(1)
+

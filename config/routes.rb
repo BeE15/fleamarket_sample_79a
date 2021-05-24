@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   root 'products#index'
 
-  # root 'buyers#new'
+  # root 'buyers#index'
 
   # root 'mypages#show'
 

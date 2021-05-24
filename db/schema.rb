@@ -71,6 +71,9 @@ ActiveRecord::Schema.define(version: 2020_12_18_133806) do
     t.string "status", null: false
     t.string "days", null: false
     t.string "shipping_cost", null: false
+    t.bigint "size_id"
+    t.bigint "brand_id"
+    t.bigint "user_id", null: false
     t.string "category_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
